@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Changelog Helper</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- FIXME: Use local CSS instead of CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" integrity="sha256-Ndk1ry+oGNFEaXt4kxlW/SYLbxat1O0DhaDd+lob0SY=" crossorigin="anonymous" />
+    <style>
+      .markdown-body {
+        box-sizing: border-box;
+        min-width: 200px;
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 45px;
+      }
+      @media (max-width: 767px) {
+        .markdown-body {
+          padding: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="markdown-body" id="app">
+      <template v-if="!isDone">
+        <h1>Changelog Helper</h1>
+        <select v-model="releaseType">
+          <option disabled value="">Select Release Type</option>
+          <option>major</option>
+          <option>minor</option>
+          <option>patch</option>
+          <option>premajor</option>
+          <option>preminor</option>
+          <option>prepatch</option>
+          <option>prerelease</option>
+        </select>
+        <div v-for="(change, index) of changes">
+          <input v-model="changes[index]" placeholder="Describe your changes" />
+          <button @click="changes.splice(index + 1, 0, '')">+</button>
+          <button @click="changes.splice(index, 1)" :disabled="changes.length === 1 && !index">X</button>
+        </div>
+        <h2>Preview:</h2>
+        <div v-html="preview"></div>
+        <button @click="submit">Write to CHANGELOG.md</button>
+      </template>
+      <div v-else>
+        <h1>All Done!</h1>
+        <p>Please close this browser tab and return to the terminal</p>
+      </div>
+    </div>
+    <script src="bundle.js" charset="utf-8"></script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+{
+  "name": "changelog-helper",
+  "version": "0.0.0",
+  "description": "Handy browser UI to help you write changelogs",
+  "homepage": "https://github.com/RyanZim/changelog-helper#readme",
+  "bugs": {
+    "url": "https://github.com/RyanZim/changelog-helper/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RyanZim/changelog-helper.git"
+  },
+  "license": "ISC",
+  "author": "Ryan Zimmerman <opensrc@ryanzim.com>",
+  "files": [
+    "changelog-helper",
+    "server",
+    "app/index.html",
+    "app/bundle.js"
+  ],
+  "main": "index.js",
+  "bin": "changelog-helper",
+  "scripts": {
+    "build": "browserify app/source.js -o app/bundle.js",
+    "changelog": "./changelog-helper",
+    "eslint": "eslint . --ignore-path .gitignore",
+    "format": "npm run eslint -- --fix && npm run prettier -- --write && sort-package-json",
+    "test": "npm run eslint && npm run prettier -- --list-different",
+    "prettier": "prettier \"**/*.{js,css,md}\" --ignore-path .gitignore",
+    "watch": "onchange -i app/source.js -- npm run build"
+  },
+  "browser": {
+    "vue": "vue/dist/vue.common.js"
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "opn": "^5.3.0",
+    "read-pkg-up": "^4.0.0",
+    "serve-static": "^1.13.2"
+  },
+  "devDependencies": {
+    "browserify": "^16.2.2",
+    "eslint": "^5.3.0",
+    "eslint-config-problems": "^1.1.0",
+    "marked": "^0.4.0",
+    "onchange": "^4.1.0",
+    "prettier": "^1.14.0",
+    "semver": "^5.5.0",
+    "sort-package-json": "^1.15.0",
+    "vue": "^2.5.17"
+  }
+}
