@@ -2,14 +2,21 @@
 const fs = require('fs');
 const path = require('path');
 const readPkgUp = require('read-pkg-up');
+const githubUrlFromGit = require('github-url-from-git');
 const opn = require('opn');
 const startServer = require('./server');
 
 const { pkg, path: pkgPath } = readPkgUp.sync();
+const github = githubUrlFromGit(pkg.repository.url);
+
+if (!github) {
+  console.error('Error: Must have GitHub repository in package.json');
+  process.exit(1);
+}
 
 startServer(handleData);
 
-const url = `http://localhost:3000/#${pkg.version}`;
+const url = `http://localhost:3000/#${pkg.version}|${github}`;
 
 console.log(`Server running on ${url}`);
 console.log(

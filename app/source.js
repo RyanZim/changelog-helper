@@ -4,23 +4,26 @@ const Vue = require('vue');
 const semver = require('semver');
 const marked = require('marked');
 
-const currentVersion = semver.clean(window.location.hash.substr(1));
+const hashArgs = window.location.hash.substr(1).split('|');
+
+const currentVersion = semver.clean(hashArgs[0]);
+const githubUrl = hashArgs[1];
 
 new Vue({
   el: '#app',
   data: {
     releaseType: '',
-    changes: [''],
+    changes: [{}],
     isDone: false,
   },
   computed: {
     filteredChanges() {
-      return this.changes.filter((i) => !!i);
+      return this.changes.filter((i) => i.description && i.description.trim());
     },
     markdown() {
       const list = !this.filteredChanges.length
         ? ''
-        : `- ${this.filteredChanges.join('\n- ')}\n`;
+        : `- ${this.filteredChanges.map(changeToString).join('\n- ')}\n`;
 
       const newVersion = this.releaseType
         ? semver.inc(currentVersion, this.releaseType)
@@ -53,3 +56,27 @@ new Vue({
     },
   },
 });
+
+function changeToString(change) {
+  let str = change.description.trim();
+  const issue = issuePrToLink(change.issue, 'issue');
+  const pr = issuePrToLink(change.pr, 'pr');
+  if (issue || pr) str += ' (';
+  if (issue) str += issue;
+  if (issue && pr) str += ', ';
+  if (pr) str += pr;
+  if (issue || pr) str += ')';
+
+  return str;
+}
+
+function issuePrToLink(item, type) {
+  const typeMap = {
+    issue: 'issues',
+    pr: 'pull',
+  };
+
+  if (!item) return;
+  if (item.startsWith('#')) item = item.slice(1);
+  return `[#${item}](${githubUrl}/${typeMap[type]}/${item})`;
+}
