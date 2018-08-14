@@ -9,14 +9,27 @@ const hashArgs = window.location.hash.substr(1).split('|');
 const currentVersion = semver.clean(hashArgs[0]);
 const githubUrl = hashArgs[1];
 
+const versionOptions = ['patch', 'minor', 'major'].map((upgradeType) => {
+  return semver.inc(currentVersion, upgradeType);
+});
+versionOptions.unshift(currentVersion);
+versionOptions.push('other');
+
 new Vue({
   el: '#app',
   data: {
-    releaseType: '',
+    newVersion: currentVersion,
+    versionOptions,
+    customVersion: '',
     changes: [{}],
     isDone: false,
   },
   computed: {
+    computedVersion() {
+      return this.newVersion === 'other'
+        ? semver.clean(this.customVersion)
+        : this.newVersion;
+    },
     filteredChanges() {
       return this.changes.filter((i) => i.description && i.description.trim());
     },
@@ -25,11 +38,8 @@ new Vue({
         ? ''
         : `- ${this.filteredChanges.map(changeToString).join('\n- ')}\n`;
 
-      const newVersion = this.releaseType
-        ? semver.inc(currentVersion, this.releaseType)
-        : currentVersion;
       const isoDate = new Date().toISOString().substr(0, 10);
-      return `# ${newVersion} / ${isoDate}\n\n${list}\n`;
+      return `# ${this.computedVersion} / ${isoDate}\n\n${list}\n`;
     },
     preview() {
       return marked(this.markdown);
@@ -37,8 +47,8 @@ new Vue({
   },
   methods: {
     submit() {
-      if (!this.releaseType) {
-        return alert('No Release Type Selected; aborting.');
+      if (!this.computedVersion) {
+        return alert(`Invalid version "${this.customVersion}"`);
       }
       if (!this.filteredChanges.length) {
         return alert('No release notes written; aborting.');

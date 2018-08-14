@@ -25,16 +25,13 @@
     <div class="markdown-body" id="app">
       <template v-if="!isDone">
         <h1>Changelog Helper</h1>
-        <select v-model="releaseType">
-          <option disabled value="">Select Release Type</option>
-          <option>major</option>
-          <option>minor</option>
-          <option>patch</option>
-          <option>premajor</option>
-          <option>preminor</option>
-          <option>prepatch</option>
-          <option>prerelease</option>
+        New Version Number:
+        <select v-model="newVersion">
+          <option v-for="version in versionOptions" v-bind:value="version">
+            {{ version }}
+          </option>
         </select>
+        <input v-if="newVersion === 'other'" v-model="customVersion" type="text" placeholder="Version Number" />
         <div v-for="(change, index) of changes">
           <input v-model="changes[index].description" placeholder="Describe your changes" />
           <input v-model="changes[index].issue" placeholder="Issue #" />
