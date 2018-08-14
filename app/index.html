@@ -36,8 +36,10 @@
           <option>prerelease</option>
         </select>
         <div v-for="(change, index) of changes">
-          <input v-model="changes[index]" placeholder="Describe your changes" />
-          <button @click="changes.splice(index + 1, 0, '')">+</button>
+          <input v-model="changes[index].description" placeholder="Describe your changes" />
+          <input v-model="changes[index].issue" placeholder="Issue #" />
+          <input v-model="changes[index].pr" placeholder="PR #" />
+          <button @click="changes.splice(index + 1, 0, {})">+</button>
           <button @click="changes.splice(index, 1)" :disabled="changes.length === 1 && !index">X</button>
         </div>
         <h2>Preview:</h2>
