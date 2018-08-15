@@ -2,6 +2,7 @@
 // NOTE: This loads the development version of Vue.js; consider changing
 const Vue = require('vue');
 const semver = require('semver');
+const timestamp = require('time-stamp');
 const marked = require('marked');
 
 const hashArgs = window.location.hash.substr(1).split('|');
@@ -38,8 +39,7 @@ new Vue({
         ? ''
         : `- ${this.filteredChanges.map(changeToString).join('\n- ')}\n`;
 
-      const isoDate = new Date().toISOString().substr(0, 10);
-      return `# ${this.computedVersion} / ${isoDate}\n\n${list}\n`;
+      return `# ${this.computedVersion} / ${timestamp()}\n\n${list}\n`;
     },
     preview() {
       return marked(this.markdown);

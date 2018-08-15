@@ -55,6 +55,7 @@
     "prettier": "^1.14.0",
     "semver": "^5.5.0",
     "sort-package-json": "^1.15.0",
+    "time-stamp": "^2.0.1",
     "vue": "^2.5.17"
   }
 }
