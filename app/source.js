@@ -23,6 +23,7 @@ new Vue({
     versionOptions,
     customVersion: '',
     changes: [{}],
+    error: '',
     isDone: false,
   },
   computed: {
@@ -48,11 +49,14 @@ new Vue({
   methods: {
     submit() {
       if (!this.computedVersion) {
-        return alert(`Invalid version "${this.customVersion}"`);
+        this.error = `Invalid version "${this.customVersion}"`;
+        return;
       }
       if (!this.filteredChanges.length) {
-        return alert('No release notes written; aborting.');
+        this.error = 'No release notes written; aborting.';
+        return;
       }
+      this.error = '';
 
       fetch('/', {
         method: 'post',

@@ -5,44 +5,45 @@
     <title>Changelog Helper</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <base target="_blank" />
-    <!-- FIXME: Use local CSS instead of CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" integrity="sha256-Ndk1ry+oGNFEaXt4kxlW/SYLbxat1O0DhaDd+lob0SY=" crossorigin="anonymous" />
-    <style>
-      .markdown-body {
-        box-sizing: border-box;
-        min-width: 200px;
-        max-width: 980px;
-        margin: 0 auto;
-        padding: 45px;
-      }
-      @media (max-width: 767px) {
-        .markdown-body {
-          padding: 15px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="bundle.css" />
   </head>
   <body>
     <div class="markdown-body" id="app">
       <template v-if="!isDone">
         <h1>Changelog Helper</h1>
-        New Version Number:
-        <select v-model="newVersion">
-          <option v-for="version in versionOptions" v-bind:value="version">
-            {{ version }}
-          </option>
-        </select>
-        <input v-if="newVersion === 'other'" v-model="customVersion" type="text" placeholder="Version Number" />
-        <div v-for="(change, index) of changes">
-          <input v-model="changes[index].description" placeholder="Describe your changes" />
-          <input v-model="changes[index].issue" placeholder="Issue #" />
-          <input v-model="changes[index].pr" placeholder="PR #" />
-          <button @click="changes.splice(index + 1, 0, {})">+</button>
-          <button @click="changes.splice(index, 1)" :disabled="changes.length === 1 && !index">X</button>
+        <div>
+          New Version Number:
+          <select class="form-select" v-model="newVersion">
+            <option v-for="version in versionOptions" v-bind:value="version">
+              {{ version }}
+            </option>
+          </select>
+          <input v-if="newVersion === 'other'" v-model="customVersion" type="text" placeholder="Version Number" />
         </div>
-        <h2>Preview:</h2>
-        <div v-html="preview"></div>
-        <button @click="submit">Write to CHANGELOG.md</button>
+        <br />
+        <div class="change" v-for="(change, index) of changes">
+          <input class="description" v-model="changes[index].description" placeholder="Describe your changes" />
+          <input class="number" v-model="changes[index].issue" placeholder="Issue #" />
+          <input class="number" v-model="changes[index].pr" placeholder="PR #" />
+          <div class="buttons BtnGroup">
+            <button type="button" class="btn BtnGroup-item" @click="changes.splice(index + 1, 0, {})">+</button>
+            <button
+              type="button"
+              class="btn BtnGroup-item btn-danger"
+              @click="changes.splice(index, 1)"
+              :disabled="changes.length === 1 && !index"
+            >X</button>
+          </div>
+        </div>
+        <div>
+          <h2>Preview:</h2>
+          <div v-html="preview"></div>
+          <button type="submit" class="btn btn-primary" @click="submit">Write to CHANGELOG.md</button>
+        </div>
+        <br />
+        <div v-if="error" class="flash flash-error">
+          {{ error }}
+        </div>
       </template>
       <div v-else>
         <h1>All Done!</h1>
