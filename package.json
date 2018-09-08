@@ -16,7 +16,8 @@
     "changelog-helper",
     "server",
     "app/index.html",
-    "app/bundle.js"
+    "app/bundle.js",
+    "app/bundle.css"
   ],
   "main": "index.js",
   "bin": "changelog-helper",
