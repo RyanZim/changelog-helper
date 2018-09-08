@@ -1,3 +1,9 @@
+# 0.0.3 / 2018-09-08
+
+- Open external links from web app in a new browser tab
+- Fix bug with getting the date for the changelog version heading
+- Styling improvements
+
 # 0.0.2 / 2018-08-14
 
 - Input to specify Github issue/PR numbers, with auto-linking ([#1](https://github.com/RyanZim/changelog-helper/pull/1))
