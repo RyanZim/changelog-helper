@@ -1,3 +1,7 @@
+# 0.0.4 / 2018-09-08
+
+- Bugfix: CSS was not included in the published package.
+
 # 0.0.3 / 2018-09-08
 
 - Open external links from web app in a new browser tab
