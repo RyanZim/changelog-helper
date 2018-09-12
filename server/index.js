@@ -16,8 +16,7 @@ app.use(bodyParser.text());
 app.use(bodyParser.json());
 
 module.exports = ({ handleData, json2markdown }) => {
-  // TODO: Use random unused port
-  const server = app.listen(3000);
+  const server = app.listen();
 
   app.post('/', (req, res) => {
     try {
@@ -32,4 +31,6 @@ module.exports = ({ handleData, json2markdown }) => {
   app.post('/json2markdown', (req, res) => {
     res.send(json2markdown(req.body));
   });
+
+  return server.address().port;
 };

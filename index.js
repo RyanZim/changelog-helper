@@ -15,9 +15,9 @@ if (!github) {
   process.exit(1);
 }
 
-startServer({ handleData, json2markdown });
+const port = startServer({ handleData, json2markdown });
 
-const url = `http://localhost:3000/#${pkg.version}`;
+const url = `http://localhost:${port}/#${pkg.version}`;
 
 console.log(`Server running on ${url}`);
 console.log(
