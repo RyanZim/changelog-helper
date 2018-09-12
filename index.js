@@ -6,6 +6,7 @@ const githubUrlFromGit = require('github-url-from-git');
 const opn = require('opn');
 const timestamp = require('time-stamp');
 const startServer = require('./server');
+const githubNumberToLink = require('./lib/github-number-to-link');
 
 const { pkg, path: pkgPath } = readPkgUp.sync();
 const github = githubUrlFromGit(pkg.repository.url);
@@ -59,26 +60,14 @@ function json2markdown(data) {
 
 function changeToString(change) {
   let str = change.description.trim();
-  const issue = issuePrToLink(change.issue, 'issue');
-  const pr = issuePrToLink(change.pr, 'pr');
-  if (issue || pr) str += ' (';
-  if (issue) str += issue;
-  if (issue && pr) str += ', ';
-  if (pr) str += pr;
-  if (issue || pr) str += ')';
+
+  const arr = [];
+  if (change.issue) arr.push(githubNumberToLink(github, 'issue', change.issue));
+  if (change.pr) arr.push(githubNumberToLink(github, 'pr', change.pr));
+  const numbers = arr.join(', ');
+  if (numbers) str += ` (${numbers})`;
 
   return str;
-}
-
-function issuePrToLink(item, type) {
-  const typeMap = {
-    issue: 'issues',
-    pr: 'pull',
-  };
-
-  if (!item) return;
-  if (item.startsWith('#')) item = item.slice(1);
-  return `[#${item}](${github}/${typeMap[type]}/${item})`;
 }
 
 function ensureTrailingNewline(text) {
