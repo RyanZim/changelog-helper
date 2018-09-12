@@ -49,7 +49,8 @@
     "github-url-from-git": "^1.5.0",
     "opn": "^5.3.0",
     "read-pkg-up": "^4.0.0",
-    "serve-static": "^1.13.2"
+    "serve-static": "^1.13.2",
+    "time-stamp": "^2.0.1"
   },
   "devDependencies": {
     "browserify": "^16.2.2",
@@ -69,7 +70,7 @@
     "primer-markdown": "^3.7.9",
     "semver": "^5.5.0",
     "sort-package-json": "^1.15.0",
-    "time-stamp": "^2.0.1",
-    "vue": "^2.5.17"
+    "vue": "^2.5.17",
+    "vue-async-computed": "^3.4.1"
   }
 }

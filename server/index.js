@@ -13,24 +13,23 @@ app.use(
   })
 );
 app.use(bodyParser.text());
+app.use(bodyParser.json());
 
-let sendData;
-
-app.post('/', (req, res) => {
-  sendData(req.body);
-  res.end();
-});
-
-module.exports = (handleData = () => {}) => {
+module.exports = ({ handleData, json2markdown }) => {
   // TODO: Use random unused port
   const server = app.listen(3000);
 
-  sendData = (data) => {
-    server.close();
+  app.post('/', (req, res) => {
     try {
-      handleData(data);
+      handleData(req.body);
     } catch (err) {
       console.error(err);
     }
-  };
+    res.end();
+    server.close();
+  });
+
+  app.post('/json2markdown', (req, res) => {
+    res.send(json2markdown(req.body));
+  });
 };

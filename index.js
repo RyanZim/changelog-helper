@@ -4,6 +4,7 @@ const path = require('path');
 const readPkgUp = require('read-pkg-up');
 const githubUrlFromGit = require('github-url-from-git');
 const opn = require('opn');
+const timestamp = require('time-stamp');
 const startServer = require('./server');
 
 const { pkg, path: pkgPath } = readPkgUp.sync();
@@ -14,9 +15,9 @@ if (!github) {
   process.exit(1);
 }
 
-startServer(handleData);
+startServer({ handleData, json2markdown });
 
-const url = `http://localhost:3000/#${pkg.version}|${github}`;
+const url = `http://localhost:3000/#${pkg.version}`;
 
 console.log(`Server running on ${url}`);
 console.log(
@@ -45,6 +46,39 @@ function handleData(data) {
       (err) => err && console.error(err)
     );
   });
+}
+
+function json2markdown(data) {
+  const { changes, version } = data;
+  const list = !changes.length
+    ? ''
+    : `- ${changes.map(changeToString).join('\n- ')}\n`;
+
+  return `# ${version} / ${timestamp()}\n\n${list}\n`;
+}
+
+function changeToString(change) {
+  let str = change.description.trim();
+  const issue = issuePrToLink(change.issue, 'issue');
+  const pr = issuePrToLink(change.pr, 'pr');
+  if (issue || pr) str += ' (';
+  if (issue) str += issue;
+  if (issue && pr) str += ', ';
+  if (pr) str += pr;
+  if (issue || pr) str += ')';
+
+  return str;
+}
+
+function issuePrToLink(item, type) {
+  const typeMap = {
+    issue: 'issues',
+    pr: 'pull',
+  };
+
+  if (!item) return;
+  if (item.startsWith('#')) item = item.slice(1);
+  return `[#${item}](${github}/${typeMap[type]}/${item})`;
 }
 
 function ensureTrailingNewline(text) {
