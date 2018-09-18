@@ -77,5 +77,14 @@
   "ava": {
     "babel": false,
     "compileEnhancements": false
+  },
+  "renovate": {
+    "extends": [
+      "config:base",
+      ":preserveSemverRanges"
+    ],
+    "labels": [
+      "deps"
+    ]
   }
 }
