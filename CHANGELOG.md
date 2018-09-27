@@ -1,3 +1,9 @@
+# 0.1.0 / 2018-09-27
+
+- Use existing heading style when prepending to existing CHANGELOG.md
+- Use random port for localhost server
+- Internal refactoring
+
 # 0.0.4 / 2018-09-08
 
 - Bugfix: CSS was not included in the published package.
