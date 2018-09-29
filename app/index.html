@@ -26,7 +26,23 @@
           <input class="number" v-model="changes[index].issue" placeholder="Issue #" />
           <input class="number" v-model="changes[index].pr" placeholder="PR #" />
           <div class="buttons BtnGroup">
-            <button type="button" class="btn BtnGroup-item" @click="changes.splice(index + 1, 0, {})">+</button>
+            <button
+              type="button"
+              class="btn BtnGroup-item btn-primary"
+              @click="changes.splice(index + 1, 0, {})"
+            >+</button>
+            <button
+              type="button"
+              class="btn BtnGroup-item"
+              @click="changes.splice(index - 1, 2, changes[index], changes[index - 1])"
+              :disabled="index === 0"
+            >&uarr;</button>
+            <button
+              type="button"
+              class="btn BtnGroup-item"
+              @click="changes.splice(index, 2, changes[index + 1], changes[index])"
+              :disabled="changes.length - 1 === index"
+            >&darr;</button>
             <button
               type="button"
               class="btn BtnGroup-item btn-danger"
