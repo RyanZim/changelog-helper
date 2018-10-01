@@ -1,3 +1,8 @@
+# 0.1.1 / 2018-10-01
+
+- Add buttons to reorder Changelog entries
+- Fix `files` field in `package.json` to publish all the needed files to npm
+
 # 0.1.0 / 2018-09-27
 
 - Use existing heading style when prepending to existing CHANGELOG.md
