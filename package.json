@@ -83,10 +83,9 @@
   "renovate": {
     "extends": [
       "config:base",
-      ":preserveSemverRanges"
-    ],
-    "labels": [
-      "deps"
+      ":preserveSemverRanges",
+      ":maintainLockFilesMonthly",
+      ":label(deps)"
     ]
   }
 }
