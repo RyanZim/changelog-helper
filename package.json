@@ -70,7 +70,7 @@
     "primer-base": "^2.0.0",
     "primer-buttons": "^2.6.0",
     "primer-forms": "^3.0.0",
-    "primer-markdown": "^3.7.9",
+    "primer-markdown": "^4.0.0",
     "semver": "^5.5.0",
     "sort-package-json": "^1.15.0",
     "vue": "^2.5.17",
