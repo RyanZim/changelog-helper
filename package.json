@@ -69,7 +69,7 @@
     "primer-alerts": "^2.0.0",
     "primer-base": "^2.0.0",
     "primer-buttons": "^2.6.0",
-    "primer-forms": "^2.1.4",
+    "primer-forms": "^3.0.0",
     "primer-markdown": "^3.7.9",
     "semver": "^5.5.0",
     "sort-package-json": "^1.15.0",
