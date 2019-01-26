@@ -67,7 +67,7 @@
     "postcss-nesting": "^7.0.0",
     "prettier": "^1.14.0",
     "primer-alerts": "^1.5.9",
-    "primer-base": "^1.7.4",
+    "primer-base": "^2.0.0",
     "primer-buttons": "^2.6.0",
     "primer-forms": "^2.1.4",
     "primer-markdown": "^3.7.9",
