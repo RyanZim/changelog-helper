@@ -71,7 +71,7 @@
     "primer-buttons": "^2.6.0",
     "primer-forms": "^3.0.0",
     "primer-markdown": "^4.0.0",
-    "semver": "^5.5.0",
+    "semver": "^6.0.0",
     "sort-package-json": "^1.15.0",
     "vue": "^2.5.17",
     "vue-async-computed": "^3.4.1"
