@@ -68,7 +68,7 @@
     "prettier": "^1.14.0",
     "primer-alerts": "^2.0.0",
     "primer-base": "^2.0.0",
-    "primer-buttons": "^2.6.0",
+    "primer-buttons": "^3.0.0",
     "primer-forms": "^3.0.0",
     "primer-markdown": "^4.0.0",
     "semver": "^6.0.0",
