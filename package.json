@@ -22,6 +22,9 @@
     "app/bundle.css"
   ],
   "main": "index.js",
+  "browser": {
+    "vue": "vue/dist/vue.common.js"
+  },
   "bin": "changelog-helper",
   "scripts": {
     "build": "run-p build:*",
@@ -31,14 +34,11 @@
     "eslint": "eslint . --ignore-path .gitignore",
     "format": "npm run eslint -- --fix && npm run prettier -- --write && sort-package-json",
     "prepare": "npm run build",
-    "test": "npm run eslint && npm run prettier -- --list-different && ava",
     "prettier": "prettier \"**/*.{js,css,md}\" --ignore-path .gitignore",
+    "test": "npm run eslint && npm run prettier -- --list-different && ava",
     "watch": "run-p watch:*",
     "watch:css": "onchange -i app/source.css -- npm run build:css",
     "watch:js": "onchange -i app/source.js -- npm run build:js"
-  },
-  "browser": {
-    "vue": "vue/dist/vue.common.js"
   },
   "prettier": {
     "arrowParens": "always",
