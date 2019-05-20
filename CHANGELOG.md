@@ -1,3 +1,8 @@
+# 0.1.2 / 2019-05-20
+
+- Fix line spacing issue
+- Update dependencies
+
 # 0.1.1 / 2018-10-01
 
 - Add buttons to reorder Changelog entries
