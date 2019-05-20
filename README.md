@@ -6,7 +6,9 @@ Some people use automated tools like [conventional-changelog](https://github.com
 
 So, I've built a little `changelog-helper`; a browser interface for writing your changelogs in.
 
-_NOTE: This is still a work-in-progress; it doesn't do much yet, but I want to make it smarter over time._
+## Screenshot
+
+![Screenshot](screenshot.png)
 
 ## Installation
 
