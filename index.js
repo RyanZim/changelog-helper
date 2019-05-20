@@ -9,16 +9,16 @@ const startServer = require('./server');
 const githubNumberToLink = require('./lib/github-number-to-link');
 const textToHeading = require('./lib/text-to-heading');
 
-const { pkg, path: pkgPath } = readPkgUp.sync();
+const pkg = readPkgUp.sync();
 
-const github = githubUrlFromGit(pkg.repository.url);
+const github = githubUrlFromGit(pkg.package.repository.url);
 if (!github) {
   console.error('Error: Must have GitHub repository in package.json');
   process.exit(1);
 }
 
 // TODO: Allow HISTORY.md, etc.
-const changelogPath = path.join(pkgPath, '../CHANGELOG.md');
+const changelogPath = path.join(pkg.path, '../CHANGELOG.md');
 let changelogContents = '';
 try {
   changelogContents = fs.readFileSync(changelogPath, 'utf8');
@@ -33,7 +33,7 @@ const headingType = getHeadingType(changelogContents);
 
 const port = startServer({ handleData, json2markdown });
 
-const url = `http://localhost:${port}/#${pkg.version}`;
+const url = `http://localhost:${port}/#${pkg.package.version}`;
 
 console.log(`Server running on ${url}`);
 console.log(
