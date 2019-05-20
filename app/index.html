@@ -18,43 +18,70 @@
               {{ version }}
             </option>
           </select>
-          <input v-if="newVersion === 'other'" v-model="customVersion" type="text" placeholder="Version Number" />
+          <input
+            v-if="newVersion === 'other'"
+            v-model="customVersion"
+            type="text"
+            placeholder="Version Number"
+          />
         </div>
         <br />
         <div class="change" v-for="(change, index) of changes">
-          <input class="description" v-model="changes[index].description" placeholder="Describe your changes" />
-          <input class="number" v-model="changes[index].issue" placeholder="Issue #" />
-          <input class="number" v-model="changes[index].pr" placeholder="PR #" />
+          <input
+            class="description"
+            v-model="changes[index].description"
+            placeholder="Describe your changes"
+          />
+          <input
+            class="number"
+            v-model="changes[index].issue"
+            placeholder="Issue #"
+          />
+          <input
+            class="number"
+            v-model="changes[index].pr"
+            placeholder="PR #"
+          />
           <div class="buttons BtnGroup">
             <button
               type="button"
               class="btn BtnGroup-item btn-primary"
               @click="changes.splice(index + 1, 0, {})"
-            >+</button>
+            >
+              +
+            </button>
             <button
               type="button"
               class="btn BtnGroup-item"
               @click="changes.splice(index - 1, 2, changes[index], changes[index - 1])"
               :disabled="index === 0"
-            >&uarr;</button>
+            >
+              &uarr;
+            </button>
             <button
               type="button"
               class="btn BtnGroup-item"
               @click="changes.splice(index, 2, changes[index + 1], changes[index])"
               :disabled="changes.length - 1 === index"
-            >&darr;</button>
+            >
+              &darr;
+            </button>
             <button
               type="button"
               class="btn BtnGroup-item btn-danger"
               @click="changes.splice(index, 1)"
               :disabled="changes.length === 1 && !index"
-            >X</button>
+            >
+              X
+            </button>
           </div>
         </div>
         <div>
           <h2>Preview:</h2>
           <div v-html="preview"></div>
-          <button type="submit" class="btn btn-primary" @click="submit">Write to CHANGELOG.md</button>
+          <button type="submit" class="btn btn-primary" @click="submit">
+            Write to CHANGELOG.md
+          </button>
         </div>
         <br />
         <div v-if="error" class="flash flash-error">
