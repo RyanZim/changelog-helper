@@ -55,7 +55,7 @@
     "time-stamp": "^2.0.1"
   },
   "devDependencies": {
-    "ava": "^1.0.0-rc.1",
+    "ava": "^2.0.0",
     "browserify": "^16.2.2",
     "eslint": "^5.3.0",
     "eslint-config-problems": "^3.0.0",
