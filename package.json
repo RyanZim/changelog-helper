@@ -41,9 +41,7 @@
     "watch:js": "onchange -i app/source.js -- npm run build:js"
   },
   "prettier": {
-    "arrowParens": "always",
-    "singleQuote": true,
-    "trailingComma": "es5"
+    "singleQuote": true
   },
   "dependencies": {
     "body-parser": "^1.18.3",
