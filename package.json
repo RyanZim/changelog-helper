@@ -41,9 +41,7 @@
     "watch:js": "onchange -i app/source.js -- npm run build:js"
   },
   "prettier": {
-    "arrowParens": "always",
-    "singleQuote": true,
-    "trailingComma": "es5"
+    "singleQuote": true
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -65,7 +63,7 @@
     "postcss-cli": "^7.0.0",
     "postcss-import": "^12.0.0",
     "postcss-nesting": "^7.0.0",
-    "prettier": "^1.17.1",
+    "prettier": "^2.0.0",
     "primer-alerts": "^2.0.0",
     "primer-base": "^2.0.0",
     "primer-buttons": "^3.0.0",
