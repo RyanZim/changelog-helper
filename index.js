@@ -11,7 +11,7 @@ const textToHeading = require('./lib/text-to-heading');
 
 const pkg = readPkgUp.sync();
 
-const github = githubUrlFromGit(pkg.package.repository.url);
+const github = githubUrlFromGit(pkg.packageJson.repository.url);
 if (!github) {
   console.error('Error: Must have GitHub repository in package.json');
   process.exit(1);
@@ -33,7 +33,7 @@ const headingType = getHeadingType(changelogContents);
 
 const port = startServer({ handleData, json2markdown });
 
-const url = `http://localhost:${port}/#${pkg.package.version}`;
+const url = `http://localhost:${port}/#${pkg.packageJson.version}`;
 
 console.log(`Server running on ${url}`);
 console.log(
