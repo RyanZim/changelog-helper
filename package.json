@@ -12,6 +12,11 @@
   },
   "license": "ISC",
   "author": "Ryan Zimmerman <opensrc@ryanzim.com>",
+  "main": "index.js",
+  "browser": {
+    "vue": "vue/dist/vue.common.js"
+  },
+  "bin": "changelog-helper",
   "files": [
     "changelog-helper",
     "server",
@@ -21,11 +26,6 @@
     "app/bundle.js",
     "app/bundle.css"
   ],
-  "main": "index.js",
-  "browser": {
-    "vue": "vue/dist/vue.common.js"
-  },
-  "bin": "changelog-helper",
   "scripts": {
     "build": "run-p build:*",
     "build:css": "postcss app/source.css -o app/bundle.css -u postcss-import postcss-nesting",
