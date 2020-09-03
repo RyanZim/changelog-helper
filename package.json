@@ -55,7 +55,7 @@
   "devDependencies": {
     "ava": "^3.0.0",
     "browserify": "^16.2.2",
-    "eslint": "^6.0.0",
+    "eslint": "^7.0.0",
     "eslint-config-problems": "^3.0.0",
     "marked": "^1.0.0",
     "npm-run-all": "^4.1.3",
