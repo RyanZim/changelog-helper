@@ -2,7 +2,11 @@
 // NOTE: This loads the development version of Vue.js; consider changing
 const Vue = require('vue');
 const AsyncComputed = require('vue-async-computed');
-const semver = require('semver');
+// Only load the parts of semver we need
+const semver = {
+  clean: require('semver/functions/clean'),
+  inc: require('semver/functions/inc'),
+};
 const marked = require('marked');
 
 Vue.use(AsyncComputed);
