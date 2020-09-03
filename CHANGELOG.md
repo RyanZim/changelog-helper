@@ -1,3 +1,8 @@
+# 0.2.0 / 2020-09-03
+
+- **BREAKING:** Require Node 12+
+- Upgrade dependencies
+
 # 0.1.2 / 2019-05-20
 
 - Fix line spacing issue
