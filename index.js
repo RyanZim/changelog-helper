@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const readPkgUp = require('read-pkg-up');
 const githubUrlFromGit = require('github-url-from-git');
-const opn = require('opn');
+const open = require('open');
 const timestamp = require('time-stamp');
 const startServer = require('./server');
 const githubNumberToLink = require('./lib/github-number-to-link');
@@ -40,7 +40,7 @@ console.log(
   "Your browser should open shortly; if it doesn't, click on the link above"
 );
 
-opn(url);
+open(url);
 
 function handleData(data) {
   console.log();
