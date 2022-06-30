@@ -41,7 +41,7 @@ new Vue({
       return this.changes.filter((i) => i.description && i.description.trim());
     },
     preview() {
-      return marked(this.markdown || '');
+      return marked.parse(this.markdown || '');
     },
   },
   asyncComputed: {
