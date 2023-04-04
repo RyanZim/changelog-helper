@@ -53,6 +53,7 @@
     "time-stamp": "^2.0.1"
   },
   "devDependencies": {
+    "@primer/css": "^20.2.3",
     "ava": "^4.3.0",
     "browserify": "^17.0.0",
     "eslint": "^8.18.0",

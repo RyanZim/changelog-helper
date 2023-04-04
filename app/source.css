@@ -1,8 +1,9 @@
-@import 'primer-base';
-@import 'primer-markdown';
-@import 'primer-buttons';
-@import 'primer-forms';
-@import 'primer-alerts';
+@import '@primer/css/dist/color-modes.css';
+@import '@primer/css/dist/base.css';
+@import '@primer/css/dist/buttons.css';
+@import '@primer/css/dist/forms.css';
+@import '@primer/css/dist/alerts.css';
+@import '@primer/css/dist/markdown.css';
 
 .markdown-body {
   box-sizing: border-box;

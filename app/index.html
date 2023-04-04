@@ -28,17 +28,17 @@
         <br />
         <div class="change" v-for="(change, index) of changes">
           <input
-            class="description"
+            class="description form-control"
             v-model="changes[index].description"
             placeholder="Describe your changes"
           />
           <input
-            class="number"
+            class="number form-control"
             v-model="changes[index].issue"
             placeholder="Issue #"
           />
           <input
-            class="number"
+            class="number form-control"
             v-model="changes[index].pr"
             placeholder="PR #"
           />
