@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import readPkgUp from 'read-pkg-up';
+import { readPackageUpSync } from 'read-pkg-up';
 import githubUrlFromGit from 'github-url-from-git';
 import open from 'open';
 import timestamp from 'time-stamp';
@@ -8,7 +8,7 @@ import startServer from './server/index.js';
 import githubNumberToLink from './lib/github-number-to-link.js';
 import textToHeading from './lib/text-to-heading.js';
 
-const pkg = readPkgUp.sync();
+const pkg = readPackageUpSync();
 
 const github = githubUrlFromGit(pkg.packageJson.repository.url);
 if (!github) {
