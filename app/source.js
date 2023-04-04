@@ -1,13 +1,10 @@
-'use strict';
-// NOTE: This loads the development version of Vue.js; consider changing
-const Vue = require('vue');
-const AsyncComputed = require('vue-async-computed');
+import Vue from 'vue/dist/vue.esm.js';
+import AsyncComputed from 'vue-async-computed';
+import { marked } from 'marked';
 // Only load the parts of semver we need
-const semver = {
-  clean: require('semver/functions/clean'),
-  inc: require('semver/functions/inc'),
-};
-const marked = require('marked');
+import clean from 'semver/functions/clean';
+import inc from 'semver/functions/inc';
+const semver = { clean, inc };
 
 Vue.use(AsyncComputed);
 

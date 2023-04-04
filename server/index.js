@@ -1,13 +1,11 @@
-'use strict';
-const path = require('path');
-const express = require('express');
-const serveStatic = require('serve-static');
-const bodyParser = require('body-parser');
+import express from 'express';
+import serveStatic from 'serve-static';
+import bodyParser from 'body-parser';
 
 const app = express();
 
 app.use(
-  serveStatic(path.join(__dirname, '../app/'), {
+  serveStatic(new URL('../app/', import.meta.url).pathname, {
     cacheControl: false,
     lastModified: false,
   })
@@ -15,7 +13,7 @@ app.use(
 app.use(bodyParser.text());
 app.use(bodyParser.json());
 
-module.exports = ({ handleData, json2markdown }) => {
+export default function ({ handleData, json2markdown }) {
   const server = app.listen();
 
   app.post('/', (req, res) => {
@@ -33,4 +31,4 @@ module.exports = ({ handleData, json2markdown }) => {
   });
 
   return server.address().port;
-};
+}

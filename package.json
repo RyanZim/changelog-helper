@@ -12,11 +12,13 @@
   },
   "license": "ISC",
   "author": "Ryan Zimmerman <opensrc@ryanzim.com>",
-  "main": "index.js",
+  "type": "module",
   "browser": {
     "vue": "vue/dist/vue.common.js"
   },
-  "bin": "changelog-helper",
+  "bin": {
+    "changelog-helper": "./index.js"
+  },
   "files": [
     "changelog-helper",
     "server",
@@ -29,8 +31,8 @@
   "scripts": {
     "build": "run-p build:*",
     "build:css": "postcss app/source.css -o app/bundle.css -u postcss-import postcss-nesting",
-    "build:js": "browserify app/source.js -o app/bundle.js",
-    "changelog": "./changelog-helper",
+    "build:js": "rollup -c",
+    "changelog": "node index.js",
     "eslint": "eslint . --ignore-path .gitignore",
     "format": "npm run eslint -- --fix && npm run prettier -- --write && sort-package-json",
     "prepare": "npm run build",
@@ -38,7 +40,7 @@
     "test": "npm run eslint && npm run prettier -- --list-different && ava",
     "watch": "run-p watch:*",
     "watch:css": "onchange -i app/source.css -- npm run build:css",
-    "watch:js": "onchange -i app/source.js -- npm run build:js"
+    "watch:js": "rollup -c -w"
   },
   "prettier": {
     "singleQuote": true
@@ -54,8 +56,10 @@
   },
   "devDependencies": {
     "@primer/css": "^21.0.0",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@rollup/plugin-replace": "^5.0.2",
     "ava": "^5.2.0",
-    "browserify": "^17.0.0",
     "eslint": "^8.18.0",
     "eslint-config-problems": "^7.0.0",
     "marked": "^4.0.0",
@@ -70,6 +74,7 @@
     "primer-buttons": "^3.0.0",
     "primer-forms": "^3.0.0",
     "primer-markdown": "^4.0.0",
+    "rollup": "^3.20.2",
     "semver": "^7.0.0",
     "sort-package-json": "^2.4.1",
     "vue": "^2.5.17",

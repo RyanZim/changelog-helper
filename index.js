@@ -1,13 +1,12 @@
-'use strict';
-const fs = require('fs');
-const path = require('path');
-const readPkgUp = require('read-pkg-up');
-const githubUrlFromGit = require('github-url-from-git');
-const open = require('open');
-const timestamp = require('time-stamp');
-const startServer = require('./server');
-const githubNumberToLink = require('./lib/github-number-to-link');
-const textToHeading = require('./lib/text-to-heading');
+import fs from 'fs';
+import path from 'path';
+import readPkgUp from 'read-pkg-up';
+import githubUrlFromGit from 'github-url-from-git';
+import open from 'open';
+import timestamp from 'time-stamp';
+import startServer from './server/index.js';
+import githubNumberToLink from './lib/github-number-to-link.js';
+import textToHeading from './lib/text-to-heading.js';
 
 const pkg = readPkgUp.sync();
 
