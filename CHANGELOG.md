@@ -1,3 +1,9 @@
+# 1.0.0 / 2023-04-04
+
+- Updated styling; automatic dark mode!
+- Switch to ESM
+- Updated dependencies
+
 # 0.2.0 / 2020-09-03
 
 - **BREAKING:** Require Node 12+
