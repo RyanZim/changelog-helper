@@ -20,7 +20,6 @@
     "changelog-helper": "./index.js"
   },
   "files": [
-    "changelog-helper",
     "server",
     "lib/**/*.js",
     "!**/*.test.js",
