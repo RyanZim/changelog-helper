@@ -24,7 +24,9 @@
               {{ version }}
             </option>
           </select>
+          &nbsp;
           <input
+            class="form-control"
             v-if="newVersion === 'other'"
             v-model="customVersion"
             type="text"
