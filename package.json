@@ -31,7 +31,7 @@
     "build": "run-p build:*",
     "build:css": "postcss app/source.css -o app/bundle.css -u postcss-import postcss-nesting",
     "build:js": "rollup -c",
-    "changelog": "node index.js",
+    "changelog": "./index.js",
     "eslint": "eslint . --ignore-path .gitignore",
     "format": "npm run eslint -- --fix && npm run prettier -- --write && sort-package-json",
     "prepare": "npm run build",
