@@ -1,3 +1,7 @@
+# 1.0.1 / 2023-04-04
+
+- Fix broken release
+
 # 1.0.0 / 2023-04-04
 
 - Updated styling; automatic dark mode!
