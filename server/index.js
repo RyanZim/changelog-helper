@@ -8,7 +8,7 @@ app.use(
   serveStatic(new URL('../app/', import.meta.url).pathname, {
     cacheControl: false,
     lastModified: false,
-  })
+  }),
 );
 app.use(bodyParser.text());
 app.use(bodyParser.json());

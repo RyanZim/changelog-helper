@@ -37,7 +37,7 @@ const url = `http://localhost:${port}/#${pkg.packageJson.version}`;
 
 console.log(`Server running on ${url}`);
 console.log(
-  "Your browser should open shortly; if it doesn't, click on the link above"
+  "Your browser should open shortly; if it doesn't, click on the link above",
 );
 
 open(url);
@@ -54,7 +54,7 @@ function handleData(data) {
   fs.writeFile(
     changelogPath,
     ensureTrailingNewline(data + changelogContents),
-    (err) => err && console.error(err)
+    (err) => err && console.error(err),
   );
 }
 
@@ -75,7 +75,7 @@ function getHeadingType(markdown) {
   const lines = markdown.split('\n');
   // match pound sign headings
   const normalHeadingMatch = lines[0].match(
-    /(#{1,6}) \d+(\.\d+){2}.* \/ \d{4}(-\d{2}){2}/
+    /(#{1,6}) \d+(\.\d+){2}.* \/ \d{4}(-\d{2}){2}/,
   );
   if (normalHeadingMatch) headingType.level = normalHeadingMatch[1].length;
   // match underline headings
