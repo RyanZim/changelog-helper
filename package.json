@@ -58,7 +58,7 @@
     "@rollup/plugin-commonjs": "^25.0.0",
     "@rollup/plugin-node-resolve": "^15.0.2",
     "@rollup/plugin-replace": "^5.0.2",
-    "ava": "^5.2.0",
+    "ava": "^6.0.0",
     "eslint": "^8.18.0",
     "eslint-config-problems": "^8.0.0",
     "marked": "^5.0.0",
