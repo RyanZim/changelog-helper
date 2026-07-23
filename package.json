@@ -76,13 +76,5 @@
     "semver": "^7.0.0",
     "sort-package-json": "^2.4.1",
     "vue": "^3.2.47"
-  },
-  "renovate": {
-    "extends": [
-      "config:base",
-      ":preserveSemverRanges",
-      ":maintainLockFilesMonthly",
-      ":label(deps)"
-    ]
   }
 }
