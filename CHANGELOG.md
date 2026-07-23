@@ -1,3 +1,8 @@
+# 2.0.0 / 2026-07-23
+
+- **BREAKING:** Require Node 22+
+- Upgrade dependencies
+
 # 1.0.1 / 2023-04-04
 
 - Fix broken release
