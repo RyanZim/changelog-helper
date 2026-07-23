@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import fs from 'fs';
 import path from 'path';
-import { readPackageUpSync } from 'read-pkg-up';
+import { readPackageUpSync } from 'read-package-up';
 import githubUrlFromGit from 'github-url-from-git';
 import open from 'open';
 import timestamp from 'time-stamp';
