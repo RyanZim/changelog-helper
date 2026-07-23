@@ -2,7 +2,7 @@
 
 I don't know about you, but I hate writing changelogs. At the same time, a well-written changelog is incredibly useful for users of your package; not keeping a changelog (or dumping git commit histories into a file and calling it a changelog) isn't a good option.
 
-Some people use automated tools like [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog), but those require you to keep a special git commit message format for every commit, and frankly, I hate doing that just as much.
+Automated tools like [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog) are an option, but those require you to keep a special git commit message format for every commit.
 
 So, I've built a little `changelog-helper`; a browser interface for writing your changelogs in.
 
