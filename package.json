@@ -75,7 +75,7 @@
     "primer-markdown": "^4.0.0",
     "rollup": "^4.62.2",
     "semver": "^7.0.0",
-    "sort-package-json": "^2.4.1",
+    "sort-package-json": "^4.0.0",
     "vue": "^3.2.47"
   }
 }
