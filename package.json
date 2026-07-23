@@ -57,7 +57,7 @@
     "@primer/css": "^21.0.0",
     "@rollup/plugin-commonjs": "^25.0.0",
     "@rollup/plugin-node-resolve": "^15.0.2",
-    "@rollup/plugin-replace": "^5.0.2",
+    "@rollup/plugin-replace": "^6.0.0",
     "eslint": "^10.7.0",
     "eslint-config-problems": "^10.0.1",
     "globals": "^17.7.0",
