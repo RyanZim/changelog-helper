@@ -55,9 +55,9 @@
   },
   "devDependencies": {
     "@primer/css": "^21.0.0",
-    "@rollup/plugin-commonjs": "^25.0.0",
-    "@rollup/plugin-node-resolve": "^15.0.2",
-    "@rollup/plugin-replace": "^5.0.2",
+    "@rollup/plugin-commonjs": "^29.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-replace": "^6.0.3",
     "eslint": "^10.7.0",
     "eslint-config-problems": "^10.0.1",
     "globals": "^17.7.0",
@@ -73,7 +73,7 @@
     "primer-buttons": "^3.0.0",
     "primer-forms": "^3.0.0",
     "primer-markdown": "^4.0.0",
-    "rollup": "^3.20.2",
+    "rollup": "^4.62.2",
     "semver": "^7.0.0",
     "sort-package-json": "^2.4.1",
     "vue": "^3.2.47"
