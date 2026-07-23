@@ -1,0 +1,31 @@
+exports[`alt headings 1`] = `
+"Hello World!\\n============\\n\\n"
+`;
+
+exports[`alt headings 2`] = `
+"Hello World!\\n------------\\n\\n"
+`;
+
+exports[`normal headings 1`] = `
+"# Hello World!\\n\\n"
+`;
+
+exports[`normal headings 2`] = `
+"## Hello World!\\n\\n"
+`;
+
+exports[`normal headings 3`] = `
+"### Hello World!\\n\\n"
+`;
+
+exports[`normal headings 4`] = `
+"#### Hello World!\\n\\n"
+`;
+
+exports[`normal headings 5`] = `
+"##### Hello World!\\n\\n"
+`;
+
+exports[`normal headings 6`] = `
+"###### Hello World!\\n\\n"
+`;

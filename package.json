@@ -36,7 +36,7 @@
     "format": "npm run eslint -- --fix && npm run prettier -- --write && sort-package-json",
     "prepare": "npm run build",
     "prettier": "prettier \"**/*.{js,css,md,html}\" --ignore-path .gitignore",
-    "test": "npm run eslint && npm run prettier -- --list-different && ava",
+    "test": "npm run eslint && npm run prettier -- --list-different && node --test",
     "watch": "run-p watch:*",
     "watch:css": "onchange -i app/source.css -- npm run build:css",
     "watch:js": "rollup -c -w"
@@ -58,7 +58,6 @@
     "@rollup/plugin-commonjs": "^25.0.0",
     "@rollup/plugin-node-resolve": "^15.0.2",
     "@rollup/plugin-replace": "^5.0.2",
-    "ava": "^5.2.0",
     "eslint": "^8.18.0",
     "eslint-config-problems": "^8.0.0",
     "marked": "^5.0.0",

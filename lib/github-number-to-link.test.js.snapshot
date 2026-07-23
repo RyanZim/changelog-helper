@@ -1,0 +1,23 @@
+exports[`issue > works with numbers 1`] = `
+"[#123](https://github.com/RyanZim/changelog-helper/issues/123)"
+`;
+
+exports[`issue > works with strings 1`] = `
+"[#123](https://github.com/RyanZim/changelog-helper/issues/123)"
+`;
+
+exports[`issue > works with strings including hash 1`] = `
+"[#123](https://github.com/RyanZim/changelog-helper/issues/123)"
+`;
+
+exports[`pull request > works with numbers 1`] = `
+"[#123](https://github.com/RyanZim/changelog-helper/pull/123)"
+`;
+
+exports[`pull request > works with strings 1`] = `
+"[#123](https://github.com/RyanZim/changelog-helper/pull/123)"
+`;
+
+exports[`pull request > works with strings including hash 1`] = `
+"[#123](https://github.com/RyanZim/changelog-helper/pull/123)"
+`;
