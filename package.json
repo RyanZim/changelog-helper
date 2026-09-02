@@ -65,7 +65,7 @@
     "npm-run-all2": "^9.0.2",
     "onchange": "^7.0.0",
     "postcss-cli": "^11.0.0",
-    "postcss-import": "^16.0.0",
+    "postcss-import": "^17.0.0",
     "postcss-nesting": "^14.0.0",
     "prettier": "^3.0.0",
     "primer-alerts": "^2.0.0",
