@@ -1,3 +1,8 @@
+# 2.1.0 / 2026-10-13
+
+- Add checkbox for updating version number in package.json
+- Internal refactoring
+
 # 2.0.0 / 2026-07-23
 
 - **BREAKING:** Require Node 22+
