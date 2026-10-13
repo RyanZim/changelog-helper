@@ -1,3 +1,7 @@
+# 2.2.0 / 2026-10-13
+
+- Log to the console when the package.json version is successfully updated
+
 # 2.1.0 / 2026-10-13
 
 - Add checkbox for updating version number in package.json
