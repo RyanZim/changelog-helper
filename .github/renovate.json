@@ -2,7 +2,12 @@
   "extends": [
     "config:recommended",
     ":preserveSemverRanges",
-    ":maintainLockFilesMonthly",
     ":label(deps)"
-  ]
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "extends": [
+      "schedule:quarterly"
+    ]
+  }
 }
