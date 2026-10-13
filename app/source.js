@@ -21,6 +21,7 @@ createApp({
       newVersion: currentVersion,
       versionOptions,
       customVersion: '',
+      shouldUpdateVersion: false,
       changes: [{}],
       error: '',
       isDone: false,
@@ -32,6 +33,9 @@ createApp({
       return this.newVersion === 'other'
         ? semver.clean(this.customVersion)
         : this.newVersion;
+    },
+    versionHasChanged() {
+      return this.computedVersion !== currentVersion;
     },
     filteredChanges() {
       return this.changes.filter((i) => i.description && i.description.trim());
@@ -83,9 +87,14 @@ createApp({
       fetch('/', {
         method: 'post',
         headers: {
-          'Content-Type': 'text/plain',
+          'Content-Type': 'application/json',
         },
-        body: this.markdown,
+        body: JSON.stringify({
+          markdown: this.markdown,
+          updatedVersion: this.shouldUpdateVersion
+            ? this.computedVersion
+            : undefined,
+        }),
       })
         .then(() => (this.isDone = true))
         .catch(console.error);

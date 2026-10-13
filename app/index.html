@@ -32,6 +32,17 @@
             type="text"
             placeholder="Version Number"
           />
+          &nbsp;
+          <span v-if="versionHasChanged">
+            <input
+              type="checkbox"
+              id="shouldUpdateVersion"
+              v-model="shouldUpdateVersion"
+            />
+            <label for="shouldUpdateVersion"
+              >&nbsp;Update version number in package.json</label
+            >
+          </span>
         </div>
         <br />
         <div class="change" v-for="(change, index) of changes">

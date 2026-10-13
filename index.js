@@ -31,7 +31,7 @@ try {
 
 const headingType = getHeadingType(changelogContents);
 
-const port = startServer({ handleData, json2markdown });
+const port = startServer({ handleData, updateVersion, json2markdown });
 
 const url = `http://localhost:${port}/#${pkg.packageJson.version}`;
 
@@ -55,6 +55,21 @@ function handleData(data) {
     changelogPath,
     ensureTrailingNewline(data + changelogContents),
   ).catch(console.error);
+}
+
+async function updateVersion(version) {
+  try {
+    // Need to read the package.json because pkg.packageJson is normalized
+    const data = await fs.readFile(pkg.path, 'utf8');
+    const json = JSON.parse(data);
+    json.version = version;
+    await fs.writeFile(
+      pkg.path,
+      ensureTrailingNewline(JSON.stringify(json, null, 2)),
+    );
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 function json2markdown(data) {

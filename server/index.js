@@ -10,15 +10,15 @@ app.use(
     lastModified: false,
   }),
 );
-app.use(bodyParser.text());
 app.use(bodyParser.json());
 
-export default function ({ handleData, json2markdown }) {
+export default function ({ handleData, updateVersion, json2markdown }) {
   const server = app.listen();
 
   app.post('/', (req, res) => {
     try {
-      handleData(req.body);
+      handleData(req.body.markdown);
+      if (req.body.updatedVersion) updateVersion(req.body.updatedVersion);
     } catch (err) {
       console.error(err);
     }
