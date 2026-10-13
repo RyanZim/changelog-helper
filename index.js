@@ -67,6 +67,8 @@ async function updateVersion(version) {
       pkg.path,
       ensureTrailingNewline(JSON.stringify(json, null, 2)),
     );
+    console.log();
+    console.log(`Updated version to ${version} in package.json`);
   } catch (err) {
     console.error(err);
   }
