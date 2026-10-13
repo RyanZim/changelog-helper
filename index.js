@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 import { readPackageUpSync } from 'read-package-up';
 import githubUrlFromGit from 'github-url-from-git';
 import open from 'open';
@@ -21,7 +21,7 @@ if (!github) {
 const changelogPath = path.join(pkg.path, '../CHANGELOG.md');
 let changelogContents = '';
 try {
-  changelogContents = fs.readFileSync(changelogPath, 'utf8');
+  changelogContents = await fs.readFile(changelogPath, 'utf8');
 } catch (err) {
   if (err.code !== 'ENOENT') {
     console.error(err);
@@ -54,8 +54,7 @@ function handleData(data) {
   fs.writeFile(
     changelogPath,
     ensureTrailingNewline(data + changelogContents),
-    (err) => err && console.error(err),
-  );
+  ).catch(console.error);
 }
 
 function json2markdown(data) {
